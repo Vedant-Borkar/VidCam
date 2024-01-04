@@ -7,9 +7,6 @@ const PORT = process.env.PORT || 3030
 const server = http.createServer(app);
 const io = new Server(server);
 
-app.listen(PORT, ()=>{
-    console.log(`server started on port ${PORT}`);
-})
 
 app.get('/room/:roomId', (req, res) => {
     res.sendFile(`${__dirname}/public/room.html`);
@@ -64,4 +61,4 @@ io.on('connection', socket => {
 
 });
 
-server.listen(1337, () => console.log('server is running on port 1337'));
+server.listen(PORT, () => console.log(`server is running on port ${PORT}`));
